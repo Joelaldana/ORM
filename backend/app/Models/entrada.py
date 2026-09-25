@@ -4,6 +4,7 @@ from sqlalchemy import Integer, String, Date, ForeignKey
 from datetime import date
 from typing import TYPE_CHECKING
 
+
 if TYPE_CHECKING:
     from .producto import Producto
 
@@ -60,6 +61,9 @@ class Entrada(db.Model):
             "factura": self.entra_factura,
             "stand": self.entra_stand,
             "ubicacion": self.entra_ubicacion,
-            "fecha": self.entra_fecha.isoformat()
-            if self.entra_fecha else None
+            "fecha": (
+                self.entra_fecha.isoformat()
+                if self.entra_fecha
+                else None
+            )
         }
