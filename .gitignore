@@ -1,0 +1,18 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# Sistema
+desktop.ini
+Thumbs.db
+
+# Build
+frontend-react/dist/
+
+# Archivos locales
+frontend.zip
+.env

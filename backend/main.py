@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, jsonify
 from flask_cors import CORS
 from flasgger import Swagger
@@ -37,4 +39,7 @@ app.register_blueprint(categoria_bp)
 app.register_blueprint(entrada_bp)
 
 if __name__ == "__main__":    
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    # Puerto: en producción lo asigna el hosting (Render, Railway, etc.)
+    port = int(os.environ.get("PORT", 5000))
+    debug = os.environ.get("FLASK_DEBUG", "1") == "1"
+    app.run(host="0.0.0.0", port=port, debug=debug)
